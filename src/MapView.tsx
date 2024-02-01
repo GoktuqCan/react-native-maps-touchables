@@ -8,15 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import RnMapView, { Details, MapViewProps, Region } from 'react-native-maps';
-
-export type MarkerLocation = {
-  latitude: number;
-  longitude: number;
-  width: number;
-  height: number;
-  zIndex?: number;
-  item?: any;
-};
+import { MarkerLocation } from '..';
 
 type MarkerPosition = {
   left: number;
