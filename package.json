@@ -1,6 +1,6 @@
 {
   "name": "react-native-maps-touchables",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Marker press handler for react-native-maps",
   "main": "index.js",
   "scripts": {

@@ -1,12 +1,5 @@
 import React, { LegacyRef, forwardRef, useCallback, useMemo, useRef, useState } from 'react';
-import {
-  GestureResponderEvent,
-  NativeSyntheticEvent,
-  Pressable,
-  StyleProp,
-  StyleSheet,
-  ViewStyle,
-} from 'react-native';
+import { GestureResponderEvent, NativeSyntheticEvent, Pressable, StyleSheet } from 'react-native';
 import RnMapView, { Details, MapViewProps, Region } from 'react-native-maps';
 import { MarkerLocation } from '..';
 
@@ -23,17 +16,15 @@ const MapView = (
   {
     children,
     style,
-    containerStyle,
     onMapReady,
     markerLocations,
     onRegionChangeComplete,
-    onPress,
+    onTouch,
     ...props
-  }: {
-    containerStyle?: StyleProp<ViewStyle>;
+  }: MapViewProps & {
     markerLocations: MarkerLocation[];
-    onPress: null | ((item?: any, index?: number) => void) | undefined;
-  } & MapViewProps,
+    onTouch?: (item?: any, index?: number) => void;
+  },
   ref: LegacyRef<any> | undefined,
 ) => {
   const mapContainerRef = useRef<typeof Pressable>();
@@ -136,18 +127,17 @@ const MapView = (
             found = { position: curr, index: i };
           }
         }
-        console.log('found', found);
-        onPress?.(found?.position.item, found?.index);
+        onTouch?.(found?.position.item, found?.index);
       }
     },
-    [markerPositions, onPress],
+    [markerPositions, onTouch],
   );
 
   return (
-    <Pressable ref={mapContainerRef} style={containerStyle} onPressIn={handlePressIn} onPress={handlePress}>
+    <Pressable ref={mapContainerRef} style={style} onPressIn={handlePressIn} onPress={handlePress}>
       <RnMapView
         ref={mapRef}
-        style={style || styles.map}
+        style={StyleSheet.absoluteFill}
         onMapReady={measureMapPoints}
         onRegionChangeComplete={handleRegionChangeComplete}
         provider="google"
@@ -157,12 +147,6 @@ const MapView = (
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  map: {
-    flex: 1,
-  },
-});
 
 export default forwardRef(MapView);
 
