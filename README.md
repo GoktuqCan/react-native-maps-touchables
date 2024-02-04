@@ -102,7 +102,8 @@ export default BasicUsage;
 |`...MapViewProps`  |  | All **react-native-maps** [MapView](https://github.com/react-native-maps/react-native-maps/blob/master/docs/mapview.md#props) props are supported.|
 |`markerLocations`| `MarkerLocation[]`| **Required**. See example for usage. |
 |`onTouch`| `(item?:any,index?:number)=>void`| This callback receives `item` field from `MarkerLocation` and `index` of the touched marker in `markerLocations`. If user touches outside of the markers both are `undefined`.
-|rotateEnabled|`boolean`|Default is `false`. This prop is not supported yet.
+|`rotateEnabled`|`boolean`|Default is `false`. This prop is not supported yet.|
+|`disableOnIOS`|`boolean`|Default is `false`.|
 
 ### MarkerLocation
 |Field|Type|Notes
