@@ -1,7 +1,11 @@
 
 # react-native-maps-touchables
 Touchable area fix for [`react-native-maps`](https://github.com/airbnb/react-native-maps/) Markers on Android. Creates touchable areas for Markers.
-![touchables](https://github.com/GoktuqCan/react-native-maps-touchables/assets/15637944/ffdc20d0-6d38-40e3-8532-fd37b54e4f12)
+
+
+https://github.com/GoktuqCan/react-native-maps-touchables/assets/15637944/d071a839-634a-4b72-afc6-0b1751f4ff7f
+
+
 
 
 ## Installation
