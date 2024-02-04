@@ -5,7 +5,12 @@
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/GoktuqCan/react-native-maps-touchables.svg)](https://github.com/bramus/react-native-maps-touchables)
 [![License](https://img.shields.io/npm/l/react-native-maps-directions.svg)](LICENSE)
 
-Touchable area fix for [`react-native-maps`](https://github.com/airbnb/react-native-maps/) Markers on Android. Creates touchable areas for Markers.
+Touchable area fix for [`react-native-maps`](https://github.com/airbnb/react-native-maps/) Markers on Android.
+Issues that this repository fixes:
+
+https://github.com/react-native-maps/react-native-maps/issues/2552
+
+https://issuetracker.google.com/issues/35823783
 
 
 https://github.com/GoktuqCan/react-native-maps-touchables/assets/15637944/d071a839-634a-4b72-afc6-0b1751f4ff7f
