@@ -1,7 +1,7 @@
-import React, { LegacyRef, forwardRef, useCallback, useMemo, useRef, useState } from 'react';
+import React, { FC, LegacyRef, forwardRef, useCallback, useMemo, useRef, useState } from 'react';
 import { GestureResponderEvent, NativeSyntheticEvent, Pressable, StyleSheet } from 'react-native';
-import RnMapView, { Details, MapViewProps, Region } from 'react-native-maps';
-import { MarkerLocation } from '..';
+import RnMapView, { Details, Region } from 'react-native-maps';
+import { MapViewProps, MarkerLocation } from '..';
 
 type MarkerPosition = {
   left: number;
@@ -12,19 +12,13 @@ type MarkerPosition = {
   item?: any;
 };
 
-const MapView = (
-  {
-    children,
-    style,
-    onMapReady,
-    markerLocations,
-    onRegionChangeComplete,
-    onTouch,
-    ...props
-  }: MapViewProps & {
+const MapView: FC<
+  MapViewProps & {
     markerLocations: MarkerLocation[];
     onTouch?: (item?: any, index?: number) => void;
-  },
+  }
+> = (
+  { children, style, onMapReady, markerLocations, onRegionChangeComplete, onTouch, ...props },
   ref: LegacyRef<any> | undefined,
 ) => {
   const mapContainerRef = useRef<typeof Pressable>();
@@ -141,6 +135,7 @@ const MapView = (
         onMapReady={measureMapPoints}
         onRegionChangeComplete={handleRegionChangeComplete}
         provider="google"
+        rotateEnabled={false}
         {...props}>
         {children}
       </RnMapView>
