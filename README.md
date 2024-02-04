@@ -1,5 +1,10 @@
 
 # react-native-maps-touchables
+[![npm Version](https://img.shields.io/npm/v/react-native-maps-touchables.svg?style=flat)](https://www.npmjs.com/package/react-native-maps-touchables)
+[![npm Downloads](https://img.shields.io/npm/dm/react-native-maps-touchables.svg)](https://www.npmtrends.com/react-native-maps-touchables)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/GoktuqCan/react-native-maps-touchables.svg)](https://github.com/bramus/react-native-maps-touchables)
+[![License](https://img.shields.io/npm/l/react-native-maps-directions.svg)](LICENSE)
+
 Touchable area fix for [`react-native-maps`](https://github.com/airbnb/react-native-maps/) Markers on Android. Creates touchable areas for Markers.
 
 
@@ -110,3 +115,6 @@ export default BasicUsage;
 
 ## Known Issues
 * `rotateEnabled` is not supported yet.
+
+## License
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
