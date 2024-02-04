@@ -1,7 +1,7 @@
 import React, { FC, LegacyRef, forwardRef, useCallback, useMemo, useRef, useState } from 'react';
-import { GestureResponderEvent, NativeSyntheticEvent, Pressable, StyleSheet } from 'react-native';
+import { GestureResponderEvent, NativeSyntheticEvent, Platform, Pressable, StyleSheet } from 'react-native';
 import RnMapView, { Details, Region } from 'react-native-maps';
-import { MapViewProps, MarkerLocation } from '..';
+import { MapViewProps } from '..';
 
 type MarkerPosition = {
   left: number;
@@ -12,13 +12,8 @@ type MarkerPosition = {
   item?: any;
 };
 
-const MapView: FC<
-  MapViewProps & {
-    markerLocations: MarkerLocation[];
-    onTouch?: (item?: any, index?: number) => void;
-  }
-> = (
-  { children, style, onMapReady, markerLocations, onRegionChangeComplete, onTouch, ...props },
+const MapView: FC<MapViewProps> = (
+  { children, style, onMapReady, markerLocations, onRegionChangeComplete, onTouch, disableOnIOS, ...props },
   ref: LegacyRef<any> | undefined,
 ) => {
   const mapContainerRef = useRef<typeof Pressable>();
@@ -126,6 +121,20 @@ const MapView: FC<
     },
     [markerPositions, onTouch],
   );
+
+  if (disableOnIOS && Platform.OS === 'ios') {
+    return (
+      <RnMapView
+        ref={mapRef}
+        onMapReady={onMapReady}
+        style={style}
+        onRegionChangeComplete={onRegionChangeComplete}
+        provider="google"
+        {...props}>
+        {children}
+      </RnMapView>
+    );
+  }
 
   return (
     <Pressable ref={mapContainerRef} style={style} onPressIn={handlePressIn} onPress={handlePress}>

@@ -13,6 +13,7 @@ export type MarkerLocation = {
 export type MapViewProps = {
   markerLocations: MarkerLocation[];
   onTouch?: (item?: any, index?: number) => void;
+  disableOnIOS?: boolean;
 } & RnMapViewProps;
 
 export declare const MapView: React.FC<MapViewProps>;
